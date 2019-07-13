@@ -128,4 +128,11 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
 
+//Functions for card functionality called in switch statement
+void baronCard(int choice1, struct gameState *state);
+void minionCard(int choice1, int choice2, struct gameState *state, int handPos);
+void ambassadorCard(int choice1, int choice2, struct gameState *state, int handPos);
+void tributeCard(struct gameState *state);
+void mineCard(int choice1, int choice2, struct gameState *state, int handPos);
+
 #endif
