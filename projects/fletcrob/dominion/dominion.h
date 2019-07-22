@@ -131,8 +131,11 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 //Functions for card functionality called in switch statement
 void baronCard(int choice1, struct gameState *state);
 void minionCard(int choice1, int choice2, struct gameState *state, int handPos);
-void ambassadorCard(int choice1, int choice2, struct gameState *state, int handPos);
+int ambassadorCard(int choice1, int choice2, struct gameState *state, int handPos);
 void tributeCard(struct gameState *state);
 void mineCard(int choice1, int choice2, struct gameState *state, int handPos);
+
+//assertTrue function for assignment 3
+void assertTrue(int result, int expectedResult);
 
 #endif

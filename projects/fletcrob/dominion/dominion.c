@@ -1210,7 +1210,7 @@ void minionCard(int choice1, int choice2, struct gameState *state, int handPos) 
 
 
 //ambassador card function
-void ambassadorCard(int choice1, int choice2, struct gameState *state, int handPos) {
+int ambassadorCard(int choice1, int choice2, struct gameState *state, int handPos) {
 	int currentPlayer = whoseTurn(state);
 	int i, j;
 	j = 0;		//used to check if player has enough cards to discard
@@ -1267,7 +1267,6 @@ void ambassadorCard(int choice1, int choice2, struct gameState *state, int handP
 			}
 		}
 	}
-
 }
 
 
@@ -1375,6 +1374,14 @@ void mineCard(int choice1, int choice2, struct gameState *state, int handPos) {
 
 }
 
+void assertTrue(int result, int expectedResult) {
+	if (result == expectedResult) {
+		printf("Test passed!\n");
+	}
+	else {
+		printf("Test did not pass!\n");
+	}
+}
 
 
 //end of dominion.c
