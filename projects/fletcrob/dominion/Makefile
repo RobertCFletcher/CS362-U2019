@@ -29,11 +29,36 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-all: playdom player 
+randomtestresults: dominion.o
+	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o randomtestcard3 randomtestcard3.c -g dominion.o rngs.o $(CFLAGS)
+	printf "\n\n" >> randomtestresults.out
+	printf "**************************************\n"
+	printf "Random Test 1\n"
+	printf "**************************************\n"
+	./unittest1 > randomtestresults.out
+	printf "\n\n" >> randomtestresults.out
+	printf "**************************************\n"
+	printf "Random Test 2\n"
+	printf "**************************************\n"
+	./unittest2 >> randomtestresults.out
+	printf "\n\n" >> randomtestresults.out
+	printf "**************************************\n"
+	printf "Random Test 3\n"
+	printf "**************************************\n"
+	./unittest3 >> randomtestresults.out
+	printf "\n\n" >> randomtestresults.out
+	printf "**************************************\n"
+	printf "Branch Coverage by Function\n"
+	printf "**************************************\n"
+	gcov dominion.c -f -b >> randomtestresults.out
+	printf "\n"
+
+all: unittestresults player
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittestresults1 unittestresults2 unittestresults3
