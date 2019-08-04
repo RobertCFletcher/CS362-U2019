@@ -1298,3 +1298,4 @@ void playBaron(struct gameState *state, int currentPlayer, int choice1) {
   }
 }
 //end of dominion.c
+
