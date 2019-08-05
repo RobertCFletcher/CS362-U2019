@@ -6,9 +6,8 @@
 char inputChar()
 {
 	//20-126
-	char characterToReturn = rand() % 106 + 20;
+	char characterToReturn = rand() % 95 + 32;
 
-	// TODO: rewrite this function
 	return characterToReturn;
 }
 
